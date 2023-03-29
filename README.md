@@ -5,7 +5,7 @@
 
 **SimpleNet: A Simple Network for Image Anomaly Detection and Localization**
 
-*Zhikang Liu, Yiming Zhou, Yuansheng Xu, Zilei Wang1**
+*Zhikang Liu, Yiming Zhou, Yuansheng Xu, Zilei Wang**
 
 Paper: [arxiv 2303.15140](https://arxiv.org/pdf/2303.15140.pdf)
 
