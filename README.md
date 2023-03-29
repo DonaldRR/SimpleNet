@@ -1,10 +1,22 @@
 # SimpleNet
 
-An anomaly detection method based on anomalous feature generation.
 
-## 1. Prerequisites
+![](imgs/cover.png)
 
-## 1.1. Environment 
+**SimpleNet: A Simple Network for Image Anomaly Detection and Localization**
+*Zhikang Liu, Yiming Zhou, Yuansheng Xu, Zilei Wang1**
+
+Paper: [arxiv 2303.15140](https://arxiv.org/pdf/2303.15140.pdf)
+
+##  Introduction
+
+This repo contains source code for **SimpleNet** implemented with pytorch.
+
+SimpleNet is a simple defect detection and localization network that built with a feature encoder, feature generator and defect discriminator. It is designed conceptionally simple without complex network deisng, training schemes or external data source.
+
+## Get Started 
+
+### Environment 
 
 **Python3.8**
 
@@ -17,19 +29,19 @@ An anomaly detection method based on anomalous feature generation.
 (Above environment setups are not the minimum requiremetns, other versions might work too.)
 
 
-## 1.2. Data
+### Data
 
 Edit `run.sh` to edit dataset class and dataset path.
 
-### 1.2.1. MvTecAD
+#### MvTecAD
 
 Download the dataset from [here](https://www.mvtec.com/company/research/datasets/mvtec-ad/).
 
 The dataset folders/files follow its original structure.
 
-## 2. Run
+### Run
 
-### 2.1. Demo train
+#### Demo train
 
 Please specicy dataset path (line1) and log folder (line10) in `run.sh` before running.
 
@@ -37,3 +49,19 @@ Please specicy dataset path (line1) and log folder (line10) in `run.sh` before r
 ```
 bash run.sh
 ```
+
+## Citation
+```
+@misc{liu2023simplenet,
+      title={SimpleNet: A Simple Network for Image Anomaly Detection and Localization}, 
+      author={Zhikang Liu and Yiming Zhou and Yuansheng Xu and Zilei Wang},
+      year={2023},
+      eprint={2303.15140},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
+
+## License
+
+All code within the repo is under [MIT license](https://mit-license.org/)
