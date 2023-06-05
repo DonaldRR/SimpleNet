@@ -53,13 +53,12 @@ bash run.sh
 
 ## Citation
 ```
-@misc{liu2023simplenet,
-      title={SimpleNet: A Simple Network for Image Anomaly Detection and Localization}, 
-      author={Zhikang Liu and Yiming Zhou and Yuansheng Xu and Zilei Wang},
-      year={2023},
-      eprint={2303.15140},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@inproceedings{liu2023simplenet,
+  title={SimpleNet: A Simple Network for Image Anomaly Detection and Localization},
+  author={Liu, Zhikang and Zhou, Yiming and Xu, Yuansheng and Wang, Zilei},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={20402--20411},
+  year={2023}
 }
 ```
 
