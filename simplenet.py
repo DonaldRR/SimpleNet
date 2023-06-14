@@ -1,3 +1,9 @@
+# ------------------------------------------------------------------
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# ------------------------------------------------------------------
+# Modified by Yiming Zhou
+# ------------------------------------------------------------------
+
 """detection methods."""
 import logging
 import os
