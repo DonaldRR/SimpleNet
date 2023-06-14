@@ -62,6 +62,10 @@ bash run.sh
 }
 ```
 
+## Acknowledgement
+
+Thanks for great inspiration from [PatchCore](https://github.com/amazon-science/patchcore-inspection)
+
 ## License
 
 All code within the repo is under [MIT license](https://mit-license.org/)
