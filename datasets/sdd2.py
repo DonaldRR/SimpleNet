@@ -61,7 +61,8 @@ class SDD2Dataset(torch.utils.data.Dataset):
         self.source = source
         self.split = split
         self.train_val_split = train_val_split
-
+        self.transform_std = IMAGENET_STD
+        self.transform_mean = IMAGENET_MEAN
         self.data_to_iterate = self.get_image_data()
 
         self.transform_img = [

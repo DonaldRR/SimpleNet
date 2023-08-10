@@ -64,7 +64,8 @@ class Cifar10Dataset(torch.utils.data.Dataset):
         self.train_val_split = train_val_split
 
         self.data_to_iterate = self.get_image_data()
-
+        self.transform_std = IMAGENET_STD
+        self.transform_mean = IMAGENET_MEAN
         self.transform_img = [
             transforms.Resize(resize),
             # transforms.RandomRotation(rotate_degrees, transforms.InterpolationMode.BILINEAR),
