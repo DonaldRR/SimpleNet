@@ -77,7 +77,8 @@ class MVTecDataset(torch.utils.data.Dataset):
         self.split = split
         self.classnames_to_use = [classname] if classname is not None else _CLASSNAMES
         self.train_val_split = train_val_split
-
+        self.transform_std = IMAGENET_STD
+        self.transform_mean = IMAGENET_MEAN
         self.imgpaths_per_class, self.data_to_iterate = self.get_image_data()
 
         self.transform_img = [

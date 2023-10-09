@@ -35,6 +35,7 @@ _DATASETS = {
 @click.option("--log_project", type=str, default="project")
 @click.option("--run_name", type=str, default="test")
 @click.option("--test", is_flag=True)
+@click.option("--save_segmentation_images", is_flag=True, default=False, show_default=True)
 def main(**kwargs):
     pass
 
@@ -49,6 +50,7 @@ def run(
     log_project,
     run_name,
     test,
+    save_segmentation_images
 ):
     methods = {key: item for (key, item) in methods}
 
@@ -93,7 +95,7 @@ def run(
             if not test:
                 i_auroc, p_auroc, pro_auroc = SimpleNet.train(dataloaders["training"], dataloaders["testing"])
             else:
-                i_auroc, p_auroc, pro_auroc =  SimpleNet.test(dataloaders["training"], dataloaders["testing"])
+                i_auroc, p_auroc, pro_auroc =  SimpleNet.test(dataloaders["training"], dataloaders["testing"], save_segmentation_images)
 
 
             result_collect.append(

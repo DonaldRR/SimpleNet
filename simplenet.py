@@ -20,6 +20,7 @@ from torch.utils.tensorboard import SummaryWriter
 
 import common
 import metrics
+from utils import plot_segmentation_images
 
 LOGGER = logging.getLogger(__name__)
 
@@ -285,7 +286,7 @@ class SimpleNet(torch.nn.Module):
         return features, patch_shapes
 
     
-    def test(self, training_data, test_data):
+    def test(self, training_data, test_data, save_segmentation_images):
 
         ckpt_path = os.path.join(self.ckpt_dir, "models.ckpt")
         if os.path.exists(ckpt_path):
@@ -324,6 +325,9 @@ class SimpleNet(torch.nn.Module):
         anomaly_labels = [
             x[1] != "good" for x in test_data.dataset.data_to_iterate
         ]
+
+        if save_segmentation_images:
+            self.save_segmentation_images(test_data, segmentations, scores)
             
         auroc = metrics.compute_imagewise_retrieval_metrics(
             scores, anomaly_labels
@@ -633,6 +637,38 @@ class SimpleNet(torch.nn.Module):
         with open(self._params_file(save_path, prepend), "wb") as save_file:
             pickle.dump(params, save_file, pickle.HIGHEST_PROTOCOL)
 
+    def save_segmentation_images(self, data, segmentations, scores):
+        image_paths = [
+            x[2] for x in data.dataset.data_to_iterate
+        ]
+        mask_paths = [
+            x[3] for x in data.dataset.data_to_iterate
+        ]
+
+        def image_transform(image):
+            in_std = np.array(
+                data.dataset.transform_std
+            ).reshape(-1, 1, 1)
+            in_mean = np.array(
+                data.dataset.transform_mean
+            ).reshape(-1, 1, 1)
+            image = data.dataset.transform_img(image)
+            return np.clip(
+                (image.numpy() * in_std + in_mean) * 255, 0, 255
+            ).astype(np.uint8)
+
+        def mask_transform(mask):
+            return data.dataset.transform_mask(mask).numpy()
+
+        plot_segmentation_images(
+            './output',
+            image_paths,
+            segmentations,
+            scores,
+            mask_paths,
+            image_transform=image_transform,
+            mask_transform=mask_transform,
+        )
 
 # Image handling classes.
 class PatchMaker:
