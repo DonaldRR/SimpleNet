@@ -1,7 +1,6 @@
 # ------------------------------------------------------------------
-# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
-# ------------------------------------------------------------------
-# Modified by Yiming Zhou
+# Licensed under the MIT License [see LICENSE for details]
+# The script is based on the code of PatchCore (https://github.com/amazon-science/patchcore-inspection)
 # ------------------------------------------------------------------
 
 import logging
