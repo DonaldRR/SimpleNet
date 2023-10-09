@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------
-# SimpleNet: A Simple Network for Image Anomaly Detection and Localization
+# SimpleNet: A Simple Network for Image Anomaly Detection and Localization (https://openaccess.thecvf.com/content/CVPR2023/papers/Liu_SimpleNet_A_Simple_Network_for_Image_Anomaly_Detection_and_Localization_CVPR_2023_paper.pdf)
 # Github source: https://github.com/DonaldRR/SimpleNet
 # Licensed under the MIT License [see LICENSE for details]
 # The script is based on the code of PatchCore (https://github.com/amazon-science/patchcore-inspection)
