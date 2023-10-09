@@ -1,7 +1,8 @@
 # ------------------------------------------------------------------
-# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
-# ------------------------------------------------------------------
-# Modified by Yiming Zhou
+# SimpleNet: A Simple Network for Image Anomaly Detection and Localization
+# Github source: https://github.com/DonaldRR/SimpleNet
+# Licensed under the MIT License [see LICENSE for details]
+# The script is based on the code of PatchCore (https://github.com/amazon-science/patchcore-inspection)
 # ------------------------------------------------------------------
 
 """detection methods."""
