@@ -23,12 +23,12 @@ def compute_imagewise_retrieval_metrics(
     auroc = metrics.roc_auc_score(
         anomaly_ground_truth_labels, anomaly_prediction_weights
     )
-    
+
     precision, recall, _ = metrics.precision_recall_curve(
         anomaly_ground_truth_labels, anomaly_prediction_weights
     )
     auc_pr = metrics.auc(recall, precision)
-    
+
     return {"auroc": auroc, "fpr": fpr, "tpr": tpr, "threshold": thresholds}
 
 
@@ -88,7 +88,7 @@ from skimage import measure
 def compute_pro(masks, amaps, num_th=200):
 
     df = pd.DataFrame([], columns=["pro", "fpr", "threshold"])
-    binary_amaps = np.zeros_like(amaps, dtype=np.bool)
+    binary_amaps = np.zeros_like(amaps, dtype=np.bool_)
 
     min_th = amaps.min()
     max_th = amaps.max()
@@ -112,7 +112,7 @@ def compute_pro(masks, amaps, num_th=200):
         fp_pixels = np.logical_and(inverse_masks, binary_amaps).sum()
         fpr = fp_pixels / inverse_masks.sum()
 
-        df = df.append({"pro": np.mean(pros), "fpr": fpr, "threshold": th}, ignore_index=True)
+        df = df._append({"pro": np.mean(pros), "fpr": fpr, "threshold": th}, ignore_index=True)
 
     # Normalize FPR from 0 ~ 1 to 0 ~ 0.3
     df = df[df["fpr"] < 0.3]

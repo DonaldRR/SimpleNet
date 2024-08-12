@@ -102,7 +102,7 @@ def set_torch_device(gpu_ids):
     if len(gpu_ids):
         # os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
         # os.environ["CUDA_VISIBLE_DEVICES"] = str(gpu_ids[0])
-        return torch.device("cuda:{}".format(gpu_ids[0]))
+        return torch.device("cuda:{}".format(gpu_ids[0]-1))
     return torch.device("cpu")
 
 
