@@ -34,6 +34,29 @@ SimpleNet is a simple defect detection and localization network that built with 
 
 Edit `run.sh` to edit dataset class and dataset path.
 
+#### Custom datasets
+
+If your data is stored in a single-class folder that follows the MVTec
+directory layout (for example `zipper/train/good` and `zipper/test/...`), you
+can use the new `custom` dataset option. The loader automatically walks up the
+directory tree from the provided `data_path` until it finds the folder that
+contains the `train`/`test` splits, so both `zipper` and `zipper/train/good`
+are accepted. Update your command to use `custom` as the dataset name, e.g.
+
+```
+python3 main.py \
+  ... \
+  dataset \
+  --batch_size 8 \
+  --resize 329 \
+  --imagesize 288 \
+  -d zipper \
+  custom /path/to/zipper/train/good
+```
+
+Only the `train` directory is required, but if a `ground_truth` folder is
+present it will be used automatically for anomaly masks during testing.
+
 #### MvTecAD
 
 Download the dataset from [here](https://www.mvtec.com/company/research/datasets/mvtec-ad/).
